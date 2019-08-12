@@ -2,3 +2,4 @@ creds.py
 __pycache__
 .ipynb_checkpoints
 tweets.json
+mallet-2.0.8/
