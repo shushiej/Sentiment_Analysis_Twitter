@@ -3,7 +3,7 @@
 This repository is a playground to apply NLP techniques on twitter threads.
 Currently there exists a class that gets the last 200 tweets from any twitter handle and writes it to a database. This is then picked up by a python file which plots the twitter metrics to a frontend server using Dash and Plotly. 
 
-### Things to do before using project
+### Quick Start
 
 * Rename the `cred_sample.py` to `creds.py` and fill out the neccessary information.
     * You can set up the keys and tokens from: [Twitter Apps](http://apps.twitter.com) (assuming you have a twitter account)

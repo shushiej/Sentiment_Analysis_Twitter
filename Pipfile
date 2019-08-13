@@ -9,6 +9,9 @@ verify_ssl = true
 dash = "==1.0.2"
 dash-daq = "==0.1.0"
 pandas = "*"
+tweepy = "*"
+textblob = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.5"

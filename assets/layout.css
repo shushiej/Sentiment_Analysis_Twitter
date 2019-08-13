@@ -11,7 +11,7 @@ blockquote.twitter-tweet {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
     margin: 10px 5px;
     padding: 16px;
-    max-width: 468px;
+    max-width: 408px;
     background-color: #fff;
   }
   
@@ -28,6 +28,7 @@ blockquote.twitter-tweet {
 
 .tweet_storm {
     display: flex;
+    min-width: 200px;
 }
 
 .graphs_container {
@@ -36,6 +37,12 @@ blockquote.twitter-tweet {
 
 #num_tweets_by_hour {
     margin-top: 20px;
+}
+
+.rc-slider {
+    width: 90%;
+    margin-left: 43px;
+    margin-right: 43px;
 }
 
 .rc-slider-handle {
@@ -70,4 +77,10 @@ blockquote.twitter-tweet {
 
 .sliders{
     margin-bottom: 50px;
+    margin-left: 55px;
+    margin-right: 55px;
+}
+
+.no_margin--left {
+    margin-left: 0px;
 }

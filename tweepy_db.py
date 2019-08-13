@@ -9,6 +9,7 @@ c.execute("DROP TABLE tweets;")
 c.execute("""CREATE TABLE tweets (
             user TEXT,
             user_id INTEGER,
+            raw_tweet TEXT,
             tweets TEXT,
             id INTEGER PRIMARY KEY NOT NULL,
             date_created TEXT,
