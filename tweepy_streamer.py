@@ -124,7 +124,7 @@ class TweetAnalyzer():
         return df
     
     def tweets_to_db(self, tweets, df):
-        print(os.environ.get('DATABASE_URL'))
+        print(settings.SQLALCHEMY_DATABASE_URI)
         conn = sqlite3.connect(settings.SQLALCHEMY_DATABASE_URI)
         cur = conn.cursor()
         cur.execute("SELECT id from tweets")
