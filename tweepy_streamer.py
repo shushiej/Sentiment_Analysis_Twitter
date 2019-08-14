@@ -9,6 +9,7 @@ import pandas as pd
 import numpy as np
 from textblob import TextBlob
 import re
+import os
 
 class TwitterClient():
     def __init__(self, twitter_user=None):
@@ -123,6 +124,7 @@ class TweetAnalyzer():
         return df
     
     def tweets_to_db(self, tweets, df):
+        print(os.environ.get('server'))
         conn = sqlite3.connect(settings.SQLALCHEMY_DATABASE_URI)
         cur = conn.cursor()
         cur.execute("SELECT id from tweets")

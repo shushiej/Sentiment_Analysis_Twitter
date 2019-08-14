@@ -40,7 +40,7 @@ def generate_dataframe(name):
 
     return df, df_2, tweet_counts_by_week
 
-@server.route("/")
+@server.route("/dash")
 def index():
     return "hello flask app"
 
@@ -49,7 +49,7 @@ app = dash.Dash(
     __name__,
     server=server,
     external_stylesheets=external_stylesheets,
-    routes_pathname_prefix = "/dash/"
+    routes_pathname_prefix = "/"
 )
 
 app.layout = html.Div(children = [
