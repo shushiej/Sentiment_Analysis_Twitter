@@ -1,3 +1,7 @@
 import os
 
 SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+CONSUMER_API_KEY = os.environ.get("CONSUMER_API_KEY")
+CONSUMER_SECRET = os.environ.get("CONSUMER_SECRET")
+ACCESS_TOKEN = os.environ.get("ACCESS_TOKEN")
+ACCESS_TOKEN_SECRET = os.environ.get("ACCESS_TOKEN_SECRET")

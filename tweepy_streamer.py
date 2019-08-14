@@ -1,6 +1,6 @@
 from tweepy import API, Cursor, OAuthHandler, Stream
 from tweepy.streaming import StreamListener
-import creds
+import settings
 import json
 import sys
 import re
@@ -43,8 +43,8 @@ class TwitterClient():
 class TwitterAuthenicator():
 
     def authenticate_twitter_app(self):
-        auth = OAuthHandler(creds.CONSUMER_API_KEY, creds.CONSUMER_SECRET)
-        auth.set_access_token(creds.ACCESS_TOKEN, creds.ACCESS_TOKEN_SECRET)
+        auth = OAuthHandler(settings.CONSUMER_API_KEY, settings.CONSUMER_SECRET)
+        auth.set_access_token(settings.ACCESS_TOKEN, settings.ACCESS_TOKEN_SECRET)
         return auth
 
 class TwitterStreamer():
@@ -123,7 +123,7 @@ class TweetAnalyzer():
         return df
     
     def tweets_to_db(self, tweets, df):
-        conn = sqlite3.connect("tweets.db")
+        conn = sqlite3.connect(settings.SQLALCHEMY_DATABASE_URI)
         cur = conn.cursor()
         cur.execute("SELECT id from tweets")
         rows = cur.fetchall()
