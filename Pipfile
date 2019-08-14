@@ -13,6 +13,8 @@ tweepy = "*"
 textblob = "*"
 gunicorn = "*"
 flask = "*"
+python-dotenv = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.5"

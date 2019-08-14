@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "357735e0d1626800d6999b6c146a3b740fb798528bf1de1f122cfe7321f2312e"
+            "sha256": "913b29be2f6d389a37d5dfcff3df82c655cd44c21ed28137e5572a811bca8a57"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -212,6 +212,23 @@
             ],
             "version": "==4.1.0"
         },
+        "psycopg2": {
+            "hashes": [
+                "sha256:128d0fa910ada0157bba1cb74a9c5f92bb8a1dca77cf91a31eb274d1f889e001",
+                "sha256:227fd46cf9b7255f07687e5bde454d7d67ae39ca77e170097cdef8ebfc30c323",
+                "sha256:2315e7f104681d498ccf6fd70b0dba5bce65d60ac92171492bfe228e21dcc242",
+                "sha256:4b5417dcd2999db0f5a891d54717cfaee33acc64f4772c4bc574d4ff95ed9d80",
+                "sha256:640113ddc943522aaf71294e3f2d24013b0edd659b7820621492c9ebd3a2fb0b",
+                "sha256:897a6e838319b4bf648a574afb6cabcb17d0488f8c7195100d48d872419f4457",
+                "sha256:8dceca81409898c870e011c71179454962dec152a1a6b86a347f4be74b16d864",
+                "sha256:b1b8e41da09a0c3ef0b3d4bb72da0dde2abebe583c1e8462973233fd5ad0235f",
+                "sha256:cb407fccc12fc29dc331f2b934913405fa49b9b75af4f3a72d0f50f57ad2ca23",
+                "sha256:d3a27550a8185e53b244ad7e79e307594b92fede8617d80200a8cce1fba2c60f",
+                "sha256:f0e6b697a975d9d3ccd04135316c947dd82d841067c7800ccf622a8717e98df1"
+            ],
+            "index": "pypi",
+            "version": "==2.8.3"
+        },
         "pysocks": {
             "hashes": [
                 "sha256:15d38914b60dbcb231d276f64882a20435c049450160e953ca7d313d1405f16f",
@@ -226,6 +243,14 @@
                 "sha256:c89805f6f4d64db21ed966fda138f8a5ed7a4fdbc1a8ee329ce1b74e3c74da9e"
             ],
             "version": "==2.8.0"
+        },
+        "python-dotenv": {
+            "hashes": [
+                "sha256:debd928b49dbc2bf68040566f55cdb3252458036464806f4094487244e2a4093",
+                "sha256:f157d71d5fec9d4bd5f51c82746b6344dffa680ee85217c123f4a0c8117c4544"
+            ],
+            "index": "pypi",
+            "version": "==0.10.3"
         },
         "pytz": {
             "hashes": [

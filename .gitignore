@@ -5,3 +5,4 @@ tweets.json
 mallet-2.0.8/
 *.db
 *.sqlite3
+.env
