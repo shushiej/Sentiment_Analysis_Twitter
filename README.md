@@ -16,7 +16,7 @@ Currently there exists a class that gets the last 200 tweets from any twitter ha
 * Generate user word clouds [X]
 * Write twiiter data into a SQLite Database [X]
 * Generate Dash frontend to display twitter metrics [X]
-* Write a scheduler that inserts new twitter data into DB.
+* Write a scheduler that inserts new twitter data into DB. [X]
 * Create new model to analyse twitter sentiments, instead of using TextBlob.
 * Get Like Factor for user. 
     - Get collection of twitter replies and create a senitment polarity ratio (postive : negative replies) for the users tweets
@@ -24,5 +24,5 @@ Currently there exists a class that gets the last 200 tweets from any twitter ha
 * Av Time for Tweet response by followers
 * Design most liked/ most retweeted and least liked tweet similar to twitter design.
 * Twitter Len vs Twitter Engagement Analysis
-* Deploy to Github Pages.
+* Deploy to Heroku
 * Develop a Stock price for each user based on the like factor. 
