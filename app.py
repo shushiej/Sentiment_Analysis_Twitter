@@ -8,17 +8,14 @@ import base64
 import sqlite3
 import tweepy_streamer
 import settings
-
+import tweepy_db
 # Process the CSS
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 
 def generate_dataframe(name):
-    users = ['elonmusk', 'neiltyson', 'rickygervais', 'realDonaldTrump', 'TheNotoriousMMA']
-    for user in users:
-        ta = tweepy_streamer.TweetAnalyzer(user).user_feed_to_database()
-
+    tweepy_db.create_table()
     # Get Twitter User from DB and convert to Dataframe.
     conn = sqlite3.connect(settings.SQLALCHEMY_DATABASE_URI)
     cur = conn.cursor()
