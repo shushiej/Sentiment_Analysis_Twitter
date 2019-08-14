@@ -1,16 +1,21 @@
-import flask
-import dash
+import dash 
 import dash_core_components as dcc 
 import dash_html_components as html 
 import plotly.graph_objs as go
 import pandas as pd 
 import numpy as np
+import base64
+import sqlite3
+import tweepy_streamer
 import settings
 import tweepy_db
-import sqlite3
+from flask import Flask
 
+# Process the CSS
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-server = flask.Flask(__name__)
+server = Flask(__name__)
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets, server=server)
+
 
 def generate_dataframe(name):
     tweepy_db.create_table()
@@ -40,18 +45,6 @@ def generate_dataframe(name):
 
     return df, df_2, tweet_counts_by_week
 
-@server.route("/")
-def index():
-    return "hello flask app"
-
-
-app = dash.Dash(
-    __name__,
-    server=server,
-    external_stylesheets=external_stylesheets,
-    routes_pathname_prefix = "/dash/"
-)
-
 app.layout = html.Div(children = [
     html.Div(className="dropdown_container twelve columns", children =[
         dcc.Dropdown(
@@ -72,6 +65,7 @@ app.layout = html.Div(children = [
     dash.dependencies.Output('output_container', 'children'),
     [dash.dependencies.Input('twitter_user', 'value')]
 )
+
 def update_output(value):
     if value == None:
         return (html.H1(children = 'Twitter Analysis, Please select a Twitter User above.'))

@@ -12,6 +12,7 @@ pandas = "*"
 tweepy = "*"
 textblob = "*"
 gunicorn = "*"
+flask = "*"
 
 [requires]
 python_version = "3.5"
