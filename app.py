@@ -52,6 +52,7 @@ app.layout = html.Div(children = [
             id='twitter_user',
             options = [
                 {'label' : 'Elon Musk', 'value' : 'elonmusk'},
+                {'label' : 'Ricky Gervais', 'value' : 'rickygervais'},
                 {'label' : 'Donald Trump', 'value' : 'realDonaldTrump'},
                 {'label' : 'Neil DeGrasse Tyson', 'value' : 'neiltyson'},
                 {'label' : 'Conor McGregor', 'value' : 'TheNotoriousMMA'}
