@@ -107,8 +107,16 @@ class TweetAnalyzer():
         df = self.analyse_tweets(tweets)
         self.tweets_to_db(tweets, df)
     
+    def user_feed_to_df(self):
+        tweets = self.api.user_timeline(screen_name=self.name, count=200, tweet_mode="extended")
+        df = self.tweets_to_df(tweets)
+        return df
+    
     def tweets_to_df(self,tweets):
         df = pd.DataFrame(data=[self.clean_tweet(tweet.full_text) for tweet in tweets], columns=['tweets'])
+        df['raw_tweet'] = np.array([tweet.full_text for tweet in tweets])
+        df['user'] = tweets[0].user.screen_name
+        df['user_id'] = tweets[0].id
         df['id'] = np.array([tweet.id for tweet in tweets])
         df['date_created'] = np.array([tweet.created_at for tweet in tweets])
         df['date_created'] = pd.to_datetime(df['date_created'])
@@ -124,7 +132,6 @@ class TweetAnalyzer():
         return df
     
     def tweets_to_db(self, tweets, df):
-        print(settings.SQLALCHEMY_DATABASE_URI)
         conn = sqlite3.connect(settings.SQLALCHEMY_DATABASE_URI)
         cur = conn.cursor()
         cur.execute("SELECT id from tweets")
@@ -162,4 +169,4 @@ class TweetAnalyzer():
 if __name__ == '__main__':
     users = ['elonmusk', 'neiltyson', 'rickygervais', 'realDonaldTrump', 'TheNotoriousMMA']
     for user in users:
-        ta = TweetAnalyzer(user).user_feed_to_database()
+        ta = TweetAnalyzer(user).tweets_to_df()

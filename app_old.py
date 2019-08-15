@@ -1,33 +1,30 @@
-import dash 
+import flask
+import dash
 import dash_core_components as dcc 
 import dash_html_components as html 
 import plotly.graph_objs as go
 import pandas as pd 
 import numpy as np
-import base64
-import sqlite3
-import tweepy_streamer
 import settings
-from flask import Flask
+import tweepy_db
+import sqlite3
+from flask import g, redirect
+from flask_sqlalchemy import SQLAlchemy
 
-# Process the CSS
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-server = Flask(__name__)
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets, server=server)
+server = flask.Flask(__name__)
 
 
-
-def get_data():
-    users = ['elonmusk', 'neiltyson', 'rickygervais', 'realDonaldTrump', 'TheNotoriousMMA']
-    df = pd.DataFrame()
-    for user in users:
-        ta = tweepy_streamer.TweetAnalyzer(user).user_feed_to_df()
-        df = df.append(ta)
-    return df
-
-all_data = get_data()
 def generate_dataframe(name):
-    df = all_data[all_data['user'] == name]
+    tweepy_db.create_table()
+    # Get Twitter User from DB and convert to Dataframe.
+    conn = sqlite3.connect(settings.SQLALCHEMY_DATABASE_URI)
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM tweets where user = ?", (name, ))
+    rows = cur.fetchall()
+    df = pd.DataFrame(rows, columns=['user', 'user_id', 'raw_tweet', 'tweets', 'id', 'date_created', 'likes', 'retweet_count', 'len', 'sentiment','subjectivity', 'tweet_date', 'tweet_day_of_week', 'tweet_hour'])
+    conn.commit()
+    conn.close()
 
     tweet_counts_by_week = pd.DataFrame(df.groupby(df['tweet_day_of_week'])['tweets'].count())
 
@@ -45,6 +42,17 @@ def generate_dataframe(name):
     df['most_retweeted_tweet'] = df[most_retweets_idx]['raw_tweet'][:1]
 
     return df, df_2, tweet_counts_by_week
+
+@server.route("/dash")
+def index():
+    return "hello"
+
+app = dash.Dash(
+    __name__,
+    server=server,
+    external_stylesheets=external_stylesheets,
+    routes_pathname_prefix = "/"
+)
 
 app.layout = html.Div(children = [
     html.Div(className="dropdown_container twelve columns", children =[
@@ -66,7 +74,6 @@ app.layout = html.Div(children = [
     dash.dependencies.Output('output_container', 'children'),
     [dash.dependencies.Input('twitter_user', 'value')]
 )
-
 def update_output(value):
     if value == None:
         return (html.H1(children = 'Twitter Analysis, Please select a Twitter User above.'))
