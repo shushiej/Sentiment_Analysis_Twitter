@@ -80,7 +80,7 @@ filelock==3.0.4
 filetype==1.0.5
 Fiona==1.7.10
 Flask==1.0.2
-Flask-Cors==3.0.6
+Flask-Cors==3.0.9
 folium==0.6.0
 funcy==1.11
 future==0.16.0
