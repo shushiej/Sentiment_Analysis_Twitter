@@ -325,7 +325,7 @@ tqdm==4.11.2
 traitlets==4.3.2
 treeinterpreter==0.2.1
 tweepy==3.6.0
-Twisted==18.9.0
+Twisted==22.2.0
 twython==3.7.0
 txaio==18.8.1
 typing==3.6.6
