@@ -329,7 +329,7 @@ Twisted==18.9.0
 twython==3.7.0
 txaio==18.8.1
 typing==3.6.6
-ujson==1.35
+ujson==5.2.0
 unicodecsv==0.14.1
 Unidecode==1.0.22
 -e git+https://github.com/openai/universe.git@cc9ce6ec241821bfb0f3b85dd455bd36e4ee7a8c#egg=universe
